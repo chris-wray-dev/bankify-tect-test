@@ -5,6 +5,7 @@ import './App.css';
 import Header from './Components/Header';
 import SearchBar from './Components/SearchBar';
 import SearchResults from './Components/SearchResults';
+import SingleItem from './Components/SingleItem'
 
 function App() {
   return (
@@ -12,8 +13,8 @@ function App() {
       <Header />
       <SearchBar />
       <Router>
-        <SearchResults />
-        <SingleItem />
+        <SearchResults path="/results"/>
+        <SingleItem path="item/:item_id"/>
       </Router>
     </div>
   );
