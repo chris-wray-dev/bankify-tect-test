@@ -10,7 +10,10 @@ class SearchBar extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    api.searchByTerm(event.target[0].value);
+    api.searchByTerm({ 
+      term: event.target[0].value, 
+      media: 'movie' 
+    });
   }
 
   render() {
