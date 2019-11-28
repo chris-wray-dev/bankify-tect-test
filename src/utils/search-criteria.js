@@ -24,6 +24,38 @@ export const entityTypes = {
   'all': ['movie', 'album', 'allArtist', 'podcast', 'musicVideo', 'mix', 'audiobook', 'tvSeason', 'allTrack']
 };
 
+
+export const attributes = {
+
+  'movie': [ 'actorTerm', 'genreIndex', 'artistTerm', 'shortFilmTerm', 'producerTerm', 
+    'ratingTerm', 'directorTerm', 'releaseYearTerm', 'featureFilmTerm', 'movieArtistTerm', 
+    'movieTerm', 'ratingIndex', 'descriptionTerm' ],
+
+  'podcast': [ 'titleTerm', 'languageTerm', 'authorTerm', 'genreIndex', 'artistTerm', 
+    'ratingIndex', 'keywordsTerm', 'descriptionTerm' ],
+
+  'music': [ 'mixTerm', 'genreIndex', 'artistTerm', 'composerTerm', 'albumTerm', 
+    'ratingIndex', 'songTerm' ],
+
+  'musicVideo': [ 'genreIndex', 'artistTerm', 'albumTerm', 'ratingIndex', 'songTerm' ],
+
+  'audioBook': [ 'titleTerm', 'authorTerm', 'genreIndex', 'ratingIndex' ],
+
+  'shortFilm': [ 'genreIndex', 'artistTerm', 'shortFilmTerm', 'ratingIndex', 'descriptionTerm' ],
+
+  'software': [ 'softwareDeveloper' ],
+
+  'tvShow': [ 'genreIndex', 'tvEpisodeTerm', 'showTerm', 'tvSeasonTerm', 'ratingIndex', 'descriptionTerm' ],
+
+  'all': [ 'actorTerm', 'languageTerm', 'allArtistTerm', 'tvEpisodeTerm', 'shortFilmTerm', 'directorTerm', 
+    'releaseYearTerm', 'titleTerm', 'featureFilmTerm', 'ratingIndex', 'keywordsTerm', 'descriptionTerm',
+    'authorTerm', 'genreIndex', 'mixTerm', 'allTrackTerm', 'artistTerm', 'composerTerm', 'tvSeasonTerm', 
+    'producerTerm', 'ratingTerm', 'songTerm', 'movieArtistTerm', 'showTerm', 'movieTerm', 'albumTerm' ]
+
+}
+
+
+
 export const countries = {
   'Afghanistan': 'AF',
   'Åland Islands': 'AX',
