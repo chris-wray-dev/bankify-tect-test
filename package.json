@@ -12,7 +12,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha ./src/utils.spec.js",
+    "test": "mocha ./src/utils/utils.spec.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

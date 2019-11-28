@@ -9,7 +9,7 @@ export const searchByTerm = ( queryObject ) => {
 
   return request.get(queryString)
     .then(({ data }) => {
-      console.log(data);
+      return data;
     })
 }
 

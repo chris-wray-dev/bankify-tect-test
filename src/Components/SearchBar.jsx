@@ -12,7 +12,9 @@ class SearchBar extends Component {
       media: null, 
       entity: null, 
       limit: 50
-    }
+    },
+    results: [],
+    resultCount: null
   }
 
   handleChange = (event) => {
@@ -27,7 +29,13 @@ class SearchBar extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    api.searchByTerm(this.state.queryObject);
+    api.searchByTerm(this.state.queryObject)
+      .then(data => {
+        this.setState({
+          results: data,
+          resultCount: data.resultCount
+        })
+      });
   }
 
   render() {

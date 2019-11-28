@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 
-const { buildQueryString } = require('./utils/utils');
+const { buildQueryString } = require('./utils');
 
 describe('', () => {
   it('returns a string when passed nothing', () => {
