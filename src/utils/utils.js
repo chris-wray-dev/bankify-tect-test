@@ -3,9 +3,9 @@ const buildQueryString = ( queryObject ) => {
   let queryString = '';
   const queryKeys = Object.keys(queryObject);
   queryKeys.forEach(queryKey => {
-    if (queryString === '') {
+    if (queryString === '' && queryObject[queryKey]) {
       queryString = `?${queryKey}=${queryObject[queryKey]}`;
-    } else {
+    } else if (queryObject[queryKey]) {
       queryString += `&${queryKey}=${queryObject[queryKey]}`;
     }
   })

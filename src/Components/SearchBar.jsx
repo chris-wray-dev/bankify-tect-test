@@ -5,14 +5,29 @@ import './Styles/SearchBar.css'
 
 class SearchBar extends Component {
   state = {
-    searchTerm: ''
+    queryObject: { 
+      term: null,
+      attribute: null,
+      country: 'GB', 
+      media: null, 
+      entity: null, 
+      limit: 50
+    }
+  }
+
+  handleChange = (event) => {
+    const queryKey = event.target.id;
+    const queryValue = (event.target.value);
+    this.setState(currentState => {
+      const newState = currentState;
+      newState.queryObject[queryKey] = queryValue;
+      return newState;
+    });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    api.searchByTerm({ 
-      term: event.target[0].value
-    });
+    api.searchByTerm(this.state.queryObject);
   }
 
   render() {
@@ -20,7 +35,7 @@ class SearchBar extends Component {
       <div className="app-search-bar">
         <h4>Search Parameters</h4>
         <form onSubmit={ this.handleSubmit }>
-          <input type="text" />
+          <input id="term" type="text" onChange={ this.handleChange }/>
           <button type="submit"></button>
         </form>
       </div>

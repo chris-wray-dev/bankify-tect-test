@@ -1,30 +1,11 @@
 import axios from 'axios';
+import { buildQueryString } from './utils';
 const request = axios.create({ baseURL: 'https://itunes.apple.com/search' });
 
-export const searchByTerm = ( { 
-    term,
-    attribute,
-    country = 'GB', 
-    media, 
-    entity, 
-    limit = 200 
-  } ) => {
 
-  const queries = [];
+export const searchByTerm = ( queryObject ) => {
 
-  if (term) queries.push(`term=${term}`);
-  if (attribute) queries.push(`attribute=${attribute}`);
-  if (country) queries.push(`country=${country}`);
-  if (media) queries.push(`media=${media}`);
-  if (entity) queries.push(`entity=${entity}`);
-  if (limit) queries.push(`limit=${limit}`);
-
-  let queryString = '';
-
-  queries.forEach(query => {
-    if (queryString === '') queryString = `?${query}`;
-    else queryString += `&${query}`;
-  });
+  let queryString = buildQueryString(queryObject);
 
   return request.get(queryString)
     .then(({ data }) => {
