@@ -54,8 +54,6 @@ export const attributes = {
 
 }
 
-
-
 export const countries = {
   'Afghanistan': 'AF',
   'Åland Islands': 'AX',
