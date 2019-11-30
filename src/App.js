@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Router } from '@reach/router'
 
 import './App.css';
@@ -8,28 +8,40 @@ import SearchResults from './Components/SearchResults';
 import SingleItem from './Components/SingleItem'
 import SideBar from './Components/SideBar';
 
-function App() {
-  return (
-    <div className="app">
-      <Header />
-      <SearchBar />
-      <div className="app-body">
+class App extends Component {
 
-        <div className="sidebar">
-          <SideBar />
+  state = {
+    data: null
+  }
+
+  fetchResults = (data) => {
+    this.setState({ data })
+  }
+
+  render() {
+    const { data } = this.state;
+    return (
+      <div className="app">
+        <Header />
+        <SearchBar fetchResults={this.fetchResults}/>
+        <div className="app-body">
+
+          <div className="sidebar">
+            <SideBar />
+          </div>
+          
+          <div className="app-main">
+            <Router>
+              <SearchResults path="/" data={data}/>
+              <SearchResults path="/results" data={data}/>
+              <SingleItem path="/item/:item_id" />
+            </Router>
+          </div>
         </div>
         
-        <div className="app-main">
-          <Router>
-            <SearchResults path="/" />
-            <SearchResults path="/results" />
-            <SingleItem path="/item/:item_id" />
-          </Router>
-        </div>
       </div>
-      
-    </div>
-  );
+    );
+  }   
 }
 
 export default App;

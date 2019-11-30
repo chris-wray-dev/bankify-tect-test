@@ -13,14 +13,12 @@ class SearchBar extends Component {
       media: null, 
       entity: null, 
       limit: 50
-    },
-    results: [],
-    resultCount: null
+    }
   }
 
   handleChange = (event) => {
     const queryKey = event.target.id;
-    let queryValue = (event.target.value);
+    let queryValue = event.target.value;
     if (queryValue === '') queryValue = null;
     this.setState(currentState => {
       const newState = currentState;
@@ -30,13 +28,11 @@ class SearchBar extends Component {
   }
 
   handleSubmit = (event) => {
+    const { fetchResults } = this.props;
     event.preventDefault();
     api.searchByTerm(this.state.queryObject)
       .then(data => {
-        this.setState({
-          results: data.results,
-          resultCount: data.resultCount
-        })
+        fetchResults(data);
       })
       .catch(err => {
         console.log(err)
